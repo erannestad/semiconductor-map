@@ -1,0 +1,1307 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "bbox": [
+                -96.62888,
+                33.61566,
+                -96.58888,
+                33.65566
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -96.60888,
+                    33.63566
+                ]
+            },
+            "properties": {
+                "date": "12/7/2022",
+                "firm": "Finisar",
+                "event": "Considering facility expansion",
+                "amount": "3 billion",
+                "location": "Sherman, TX, USA",
+                "country": "United States",
+                "type of chip": "Wafer factory",
+                "direct jobs": 700
+            }
+        },
+        {
+            "bbox": [
+                -87.006129,
+                38.832905,
+                -86.973585,
+                38.848706
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -86.990878,
+                    38.842599
+                ]
+            },
+            "properties": {
+                "date": "11/21/2022",
+                "firm": "WestGate Crane Technology Park",
+                "event": "Broke ground on new facility",
+                "amount": "300 million",
+                "location": "Odon, IN, USA",
+                "country": "United States",
+                "type of chip": "Factory and R&D",
+                "direct jobs": 550
+            }
+        },
+        {
+            "bbox": [
+                -112.324065,
+                33.29026,
+                -111.92541,
+                33.918391
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -112.090057,
+                    33.43845
+                ]
+            },
+            "properties": {
+                "date": "11/9/2022",
+                "firm": "TSMC",
+                "event": "Reporting on new investment",
+                "amount": "40 billion",
+                "location": "Phoenix, AZ, USA",
+                "country": "United States",
+                "type of chip": "3nm and 5nm chips",
+                "direct jobs": "1000-2000"
+            }
+        },
+        {
+            "bbox": [
+                -78.41086,
+                43.07645,
+                -78.37086,
+                43.11645
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.39086,
+                    43.09645
+                ]
+            },
+            "properties": {
+                "date": "11/8/2022",
+                "firm": "Edwards Vaccum",
+                "event": "Announced new investment",
+                "amount": "319 million",
+                "location": "Alabama, NY, USA",
+                "country": "United States",
+                "type of chip": "vacuum and abatement equipment",
+                "direct jobs": 600
+            }
+        },
+        {
+            "bbox": [
+                -85.605165,
+                30.355757,
+                -80.751429,
+                35.000659
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.380775,
+                    32.53951
+                ]
+            },
+            "properties": {
+                "date": "11/1/2022",
+                "firm": "Absolics",
+                "event": "Broke ground on new facility",
+                "amount": "600 million",
+                "location": "Georgia, USA",
+                "country": "United States",
+                "type of chip": "factory to package chips",
+                "direct jobs": 410
+            }
+        },
+        {
+            "bbox": [
+                -84.701274,
+                42.647483,
+                -84.41764,
+                42.794884
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.550291,
+                    42.706332
+                ]
+            },
+            "properties": {
+                "date": "10/21/2022",
+                "firm": "Hemlock Semiconductor",
+                "event": "Broke ground on new facility",
+                "amount": "375 million",
+                "location": "Lansing, MI, USA",
+                "country": "United States",
+                "type of chip": "polysilicon refinement",
+                "direct jobs": 170,
+                "indirect jobs": 200
+            }
+        },
+        {
+            "bbox": [
+                -111.91231,
+                32.777503,
+                -111.610162,
+                32.99662
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -111.738891,
+                    32.790411
+                ]
+            },
+            "properties": {
+                "date": "10/20/2022",
+                "firm": "Chang Chun",
+                "event": "Broke ground on new facility",
+                "amount": "300 millian",
+                "location": "Casa Grande, AZ, USA",
+                "country": "United States",
+                "type of chip": "petrochemical supplier to TSMC",
+                "direct jobs": 200
+            }
+        },
+        {
+            "bbox": [
+                -111.894886,
+                33.277385,
+                -111.580636,
+                33.513376
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -111.773108,
+                    33.42122
+                ]
+            },
+            "properties": {
+                "date": "10/11/2022",
+                "firm": "JX Nippon Mining & Metals USA, Inc",
+                "event": "Broke ground on new facility",
+                "amount": "29 million",
+                "location": "Mesa, AZ, USA",
+                "country": "United States",
+                "type of chip": "Sputtering targets for semiconductors",
+                "direct jobs": 100
+            }
+        },
+        {
+            "bbox": [
+                -73.946682,
+                41.670266,
+                -73.89066,
+                41.716976
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.921563,
+                    41.698841
+                ]
+            },
+            "properties": {
+                "date": "10/6/2022",
+                "firm": "IBM",
+                "event": "Announced new investment",
+                "amount": "20 billion over next decade",
+                "location": "Poughkeepsie, NY, USA",
+                "country": "United States"
+            }
+        },
+        {
+            "bbox": [
+                -111.972258,
+                33.203996,
+                -111.755287,
+                33.361329
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -111.863454,
+                    33.309106
+                ]
+            },
+            "properties": {
+                "date": "10/5/2022",
+                "firm": "Saras Micro Devices",
+                "event": "Site Selected",
+                "location": "Chandler, AZ, USA",
+                "country": "United States",
+                "type of chip": "Designs and manufactures power delivery for chip manufacturing"
+            }
+        },
+        {
+            "bbox": [
+                -76.19243,
+                43.1659,
+                -76.15243,
+                43.2059
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.17243,
+                    43.1859
+                ]
+            },
+            "properties": {
+                "date": "10/4/2022",
+                "firm": "Micron",
+                "event": "Announced new investment",
+                "amount": "100 billion over 20 years",
+                "location": "Clay, NY, USA",
+                "country": "United States",
+                "type of chip": "Memory chips",
+                "direct jobs": "3000-9000"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.44006,
+                    41.20704
+                ]
+            },
+            "properties": {
+                "date": "9/12/2022",
+                "firm": "ASML",
+                "event": "Announced new investment",
+                "amount": "200 million",
+                "location": "Town of Wilton, CT, USA",
+                "country": "United States",
+                "type of chip": "Expansion of R&D and manufacturing site",
+                "direct jobs": 1000
+            }
+        },
+        {
+            "bbox": [
+                -79.00765,
+                35.866352,
+                -78.762172,
+                36.136929
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.915629,
+                    35.975835
+                ]
+            },
+            "properties": {
+                "date": "9/9/2022",
+                "firm": "Wolfspeed",
+                "event": "Announced new investment",
+                "amount": "5 billion",
+                "location": "Durham, NC, USA",
+                "country": "United States",
+                "type of chip": "200mm wafers",
+                "direct jobs": 1800
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -116.20345,
+                    43.6135
+                ]
+            },
+            "properties": {
+                "date": "9/1/2022",
+                "firm": "Micron",
+                "event": "Announced new investment",
+                "amount": "15 billion through 2030",
+                "location": "Boise, ID, USA",
+                "country": "United States",
+                "type of chip": "leading-edge memory manufacturing",
+                "direct jobs": 2000,
+                "indirect jobs": 17000
+            }
+        },
+        {
+            "bbox": [
+                -111.91231,
+                32.777503,
+                -111.610162,
+                32.99662
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -111.730075,
+                    32.85524
+                ]
+            },
+            "properties": {
+                "date": "7/26/2022",
+                "firm": "Solvay",
+                "event": "Announced new investment",
+                "amount": "",
+                "location": "Casa Grande, AZ, USA",
+                "country": "United States",
+                "type of chip": "Supplier of electronic grade hydrogen peroxide",
+                "direct jobs": 1000
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.40944,
+                    30.57076
+                ]
+            },
+            "properties": {
+                "date": "7/22/2022",
+                "firm": "Samsung",
+                "event": "Samsung considering investment, filed application",
+                "amount": "9 plants over 20 years",
+                "location": "Taylor, TX, USA",
+                "country": "United States",
+                "type of chip": "9 plants over 20 years"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -86.90807,
+                    40.42587
+                ]
+            },
+            "properties": {
+                "date": "7/20/2022",
+                "firm": "SkyWater Technology",
+                "event": "Announced new investment",
+                "amount": "24.5 billion",
+                "location": "West Lafayette, IN, USA",
+                "country": "United States",
+                "type of chip": "Factory and research",
+                "direct jobs": ""
+            }
+        },
+        {
+            "bbox": [
+                -96.62888,
+                33.61566,
+                -96.58888,
+                33.65566
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -96.60888,
+                    33.63566
+                ]
+            },
+            "properties": {
+                "date": "6/27/2022",
+                "firm": "GlobiTech (subsidiary of Taiwan's Globalwafers)",
+                "event": "Announced new investment",
+                "amount": "5 billion",
+                "location": "Sherman, TX, USA",
+                "country": "United States",
+                "type of chip": "300mm facility expansion",
+                "direct jobs": 1500
+            }
+        },
+        {
+            "bbox": [
+                -111.972258,
+                33.203996,
+                -111.755287,
+                33.361329
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -111.777768,
+                    33.2967
+                ]
+            },
+            "properties": {
+                "date": "5/31/2022",
+                "firm": "Yield Engineering Systems",
+                "event": "Announced new investment",
+                "amount": "",
+                "location": "Chandler, AZ, USA",
+                "country": "United States",
+                "type of chip": "develops and manufactures equipment to build microships",
+                "direct jobs": 100
+            }
+        },
+        {
+            "bbox": [
+                -97.938383,
+                30.098659,
+                -97.561489,
+                30.516863
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.836521,
+                    30.222346
+                ]
+            },
+            "properties": {
+                "date": "5/20/2022",
+                "firm": "NXP Semiconductors N.V.",
+                "event": "Application filed with Texas Comptroller's office",
+                "amount": "1 billion",
+                "location": "Austin, TX, USA",
+                "country": "United States"
+            }
+        },
+        {
+            "bbox": [
+                -111.972258,
+                33.203996,
+                -111.755287,
+                33.361329
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -111.822298,
+                    33.320382
+                ]
+            },
+            "properties": {
+                "date": "3/3/2022",
+                "firm": "Edwards",
+                "event": "Announced new investment",
+                "amount": "",
+                "location": "Chandler, AZ, USA",
+                "country": "United States",
+                "type of chip": "supplier of vacuum and abatement services",
+                "direct jobs": 200
+            }
+        },
+        {
+            "bbox": [
+                -97.583433,
+                30.500372,
+                -97.516142,
+                30.571083
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.548381,
+                    30.540113
+                ]
+            },
+            "properties": {
+                "date": "3/1/2022",
+                "firm": "Applied Materials",
+                "event": "Announced new investment",
+                "location": "Hutto, TX, USA",
+                "amount": "2.4 billion",
+                "country": "United States",
+                "type of chip": "R&D center",
+                "direct jobs": 525
+            }
+        },
+        {
+            "bbox": [
+                -112.324065,
+                33.29026,
+                -111.92541,
+                33.918391
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -112.03738,
+                    33.443279
+                ]
+            },
+            "properties": {
+                "date": "2/10/2022",
+                "firm": "Sunlit Chemical",
+                "event": "Broke ground on new facility",
+                "location": "Phoenix, AZ, USA",
+                "amount": "100 million",
+                "country": "United States",
+                "type of chip": "hydrofluoric acid; high purity grade industrial chemicals; raw material purification"
+            }
+        },
+        {
+            "bbox": [
+                -97.938383,
+                30.098659,
+                -97.561489,
+                30.516863
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.836521,
+                    30.222346
+                ]
+            },
+            "properties": {
+                "date": "2/1/2022",
+                "firm": "Infineon Technologies AG",
+                "event": "Announced consideration of expansion",
+                "location": "Austin, TX, USA",
+                "amount": "700 million",
+                "country": "United States",
+                "type of chip": "expansion of 2 existing plants",
+                "direct jobs": 100
+            }
+        },
+        {
+            "bbox": [
+                -112.324065,
+                33.29026,
+                -111.92541,
+                33.918391
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -112.074867,
+                    33.431396
+                ]
+            },
+            "properties": {
+                "date": "1/25/2022",
+                "firm": "Sunlit Chemical",
+                "event": "Announced new investment",
+                "location": "Phoenix, AZ, USA",
+                "amount": "60 million",
+                "country": "United States",
+                "type of chip": "supply ultra high purity hydrogen, helium, and carbon dioxide"
+            }
+        },
+        {
+            "bbox": [
+                -114.816591,
+                31.332177,
+                -109.045223,
+                37.00426
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -111.505251,
+                    34.038562
+                ]
+            },
+            "properties": {
+                "date": "1/25/2022",
+                "firm": "XNRGY",
+                "event": "Announced new investment",
+                "location": "Arizona, USA",
+                "country": "United States",
+                "type of chip": "custom air handling manufacturer",
+                "direct jobs": "",
+                "indirect jobs": 900
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.80879,
+                    40.08117
+                ]
+            },
+            "properties": {
+                "date": "1/21/2022",
+                "firm": "Intel",
+                "event": "Announced new investment",
+                "location": "New Albany, OH, USA",
+                "amount": "20 billion",
+                "country": "United States",
+                "type of chip": "Two new fabs; Potential for 8",
+                "direct jobs": 3000,
+                "indirect jobs": 7000
+            }
+        },
+        {
+            "bbox": [
+                -111.972258,
+                33.203996,
+                -111.755287,
+                33.361329
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -111.85131,
+                    33.269063
+                ]
+            },
+            "properties": {
+                "date": "1/12/2022",
+                "firm": "EMD Electronics",
+                "event": "Announced new investment",
+                "amount": "28 million",
+                "location": "Chandler, AZ, USA",
+                "country": "United States",
+                "type of chip": "maker of equipment for gas and chemical delivery systems",
+                "direct jobs": 100
+            }
+        },
+        {
+            "bbox": [
+                -111.059406,
+                31.991623,
+                -110.692841,
+                32.32095
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -110.909372,
+                    32.202675
+                ]
+            },
+            "properties": {
+                "date": "12/6/2022",
+                "firm": "Leonardo",
+                "event": "Announced facility expansion",
+                "location": "Tucson, AZ, USA",
+                "amount": "100 million",
+                "country": "United States",
+                "type of chip": "manufactures laser diodes",
+                "direct jobs": 170
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.40944,
+                    30.57076
+                ]
+            },
+            "properties": {
+                "date": "11/24/2021",
+                "firm": "Samsung",
+                "event": "",
+                "location": "Taylor, TX, USA",
+                "amount": "17 billion",
+                "country": "United States",
+                "type of chip": "Next-gen chip fab",
+                "direct jobs": 2000,
+                "indirect jobs": 6500
+            }
+        },
+        {
+            "bbox": [
+                -96.62888,
+                33.61566,
+                -96.58888,
+                33.65566
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -96.60888,
+                    33.63566
+                ]
+            },
+            "properties": {
+                "date": "11/17/2021",
+                "firm": "Texas Instruments",
+                "event": "Announced new investment, broke ground on May 18, 2022",
+                "location": "Sherman, TX, USA",
+                "amount": "6.5 billion",
+                "country": "United States",
+                "type of chip": "300mm fab; 1 of 4 potential fabs over 25 years totaling 30 billion",
+                "direct jobs": 3000
+            }
+        },
+        {
+            "bbox": [
+                -73.81262,
+                42.95119,
+                -73.77262,
+                42.99119
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.79262,
+                    42.97119
+                ]
+            },
+            "properties": {
+                "date": "7/19/2021",
+                "firm": "GlobalFoundries",
+                "event": "Announced new investment",
+                "location": "Malta, NY, USA",
+                "amount": "6-8 billion",
+                "country": "United States",
+                "type of chip": "construction of second manufacturing facility",
+                "direct jobs": 1000
+            }
+        },
+        {
+            "bbox": [
+                -106.865206,
+                35.179918,
+                -106.567003,
+                35.393978
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -106.67957,
+                    35.2997
+                ]
+            },
+            "properties": {
+                "date": "5/3/2021",
+                "firm": "Intel",
+                "event": "Announced new investment",
+                "location": "Rio Rancho, NM, USA",
+                "amount": "3.5 billion",
+                "country": "United States",
+                "type of chip": "packaging facility",
+                "direct jobs": "700",
+                "indirect jobs": "3500-4500"
+            }
+        },
+        {
+            "bbox": [
+                -111.972258,
+                33.203996,
+                -111.755287,
+                33.361329
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -111.817575,
+                    33.292752
+                ]
+            },
+            "properties": {
+                "date": "3/24/2021",
+                "firm": "Intel",
+                "event": "Announcement in March; Broke ground 14/9/21",
+                "location": "Chandler, AZ, USA",
+                "amount": "20 billion",
+                "country": "United States",
+                "type of chip": "2 fabs",
+                "direct jobs": 3000
+            }
+        },
+        {
+            "bbox": [
+                -114.816591,
+                31.332177,
+                -109.045223,
+                37.00426
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -111.505251,
+                    34.514962
+                ]
+            },
+            "properties": {
+                "date": "2/9/2021",
+                "firm": "LCY Chemical",
+                "event": "Announcement",
+                "location": "Arizona, USA",
+                "country": "United States",
+                "type of chip": "electronic-grade isopropyl alchohol supplier"
+            }
+        },
+        {
+            "bbox": [
+                -112.324065,
+                33.29026,
+                -111.92541,
+                33.918391
+            ],
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -112.06083,
+                    33.444808
+                ]
+            },
+            "properties": {
+                "date": "5/14/2020",
+                "firm": "TSMC",
+                "event": "Announced new investmetn",
+                "location": "Phoenix, AZ, USA",
+                "amount": "12 billion",
+                "country": "United States",
+                "type of chip": "5nm and 4nm chips",
+                "direct jobs": 2000
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    11.937316,
+                    49.340437
+                ]
+            },
+            "bbox": [
+                11.834984,
+                49.315609,
+                12.01111,
+                49.386872
+            ],
+            "properties": {
+                "firm": "Wolfspeed & ZF Friedrichshafen",
+                "location": "Ensdorf, BY, Germany",
+                "date": "1/23/2023",
+                "event": "Deal announced",
+                "amount": "3 billion",
+                "country": "Germany",
+                "type of chip": "SiC chips for EVs and research center"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.121971,
+                    55.106184
+                ]
+            },
+            "bbox": [
+                20.954407,
+                53.898707,
+                26.83565,
+                56.450657
+            ],
+            "properties": {
+                "firm": "Teltonika & Industrial Technology Research Institute",
+                "location": "Lithuania",
+                "date": "12/23/2022",
+                "event": "Partnership announced",
+                "amount": "14 million",
+                "country": "Lithuania"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.731021,
+                    51.055604
+                ]
+            },
+            "bbox": [
+                13.579721,
+                50.975184,
+                13.965849,
+                51.177519
+            ],
+            "properties": {
+                "firm": "TSMC",
+                "location": "Dresden, SN, Germany",
+                "date": "12/23/202",
+                "event": "Advanced talks underway",
+                "country": "Germany",
+                "type of chip": "22nm and 28nm"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.159592,
+                    41.400347
+                ]
+            },
+            "bbox": [
+                2.05247,
+                41.316956,
+                2.22922,
+                41.468282
+            ],
+            "properties": {
+                "firm": "Cisco",
+                "location": "Barcelona, CT, Spain",
+                "date": "11/10/2022",
+                "event": "Announced new investment",
+                "country": "Spain",
+                "type of chip": "chip design center"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.10626,
+                    44.43225
+                ]
+            },
+            "properties": {
+                "firm": "Onsemi",
+                "location": "Bucharest, Romania",
+                "date": "10/5/2022",
+                "event": "Facility opening",
+                "country": "Romania",
+                "type of chip": "chip design center"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.84731,
+                    37.47169
+                ]
+            },
+            "properties": {
+                "firm": "STMicroelectronics",
+                "location": "Catania, Italy",
+                "date": "10/5/2022",
+                "event": "Announced new investment",
+                "amount": "730 million",
+                "country": "Italy",
+                "type of chip": "300nm",
+                "direct jobs": 700
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -2.99835,
+                    51.58774
+                ]
+            },
+            "properties": {
+                "firm": "KLA",
+                "location": "Newport, Wales, United Kingdom",
+                "date": "9/29/2022",
+                "event": "R&D manufacturing",
+                "amount": "100 million",
+                "country": "Wales",
+                "type of chip": "R&D manufacturing",
+                "direct jobs": 750
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.503675,
+                    46.8404
+                ]
+            },
+            "bbox": [
+                26.491216,
+                46.822899,
+                26.529575,
+                46.853365
+            ],
+            "properties": {
+                "firm": "Onsemi",
+                "location": "Rasnov, NT, Romania",
+                "date": "9/21/2022",
+                "event": "Facility expansion opening",
+                "amount": "150 million, 300 million forthcoming",
+                "country": "Romania",
+                "type of chip": "expanded silicon carbide fab",
+                "direct jobs": 200
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.883248,
+                    45.277139
+                ]
+            },
+            "bbox": [
+                5.85121782612,
+                45.2574606457,
+                5.91925418027,
+                45.3053724805
+            ],
+            "properties": {
+                "firm": "STMicroelectronics and GlobalFoundries",
+                "location": "Crolles, France",
+                "date": "7/1/2022",
+                "event": "Announced new investment",
+                "amount": "5.7 billion",
+                "country": "France",
+                "type of chip": "300mm"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    11.626711,
+                    52.12646
+                ]
+            },
+            "bbox": [
+                11.51854,
+                52.025595,
+                11.764355,
+                52.228421
+            ],
+            "properties": {
+                "firm": "Intel",
+                "location": "Magdeburg, ST, Germany",
+                "date": "3/15/2022",
+                "event": "Announced new investment, Construction delay",
+                "amount": "17 billion, 68 billion over 10-15 years",
+                "country": "Germany",
+                "type of chip": "2nm & 1.8nm chips",
+                "direct jobs": 3000,
+                "indirect jobs": 7000
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.146695,
+                    48.723082
+                ]
+            },
+            "bbox": [
+                2.13497989744,
+                48.7146202199,
+                2.2034622493,
+                48.758562689
+            ],
+            "properties": {
+                "firm": "Intel",
+                "location": "Saclay, France",
+                "date": "3/15/2022",
+                "event": "Announced new investment",
+                "country": "France",
+                "type of chip": "R&D hub",
+                "direct jobs": 1000
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.502648,
+                    53.366925
+                ]
+            },
+            "bbox": [
+                -6.530519,
+                53.358669,
+                -6.473619,
+                53.380471
+            ],
+            "properties": {
+                "firm": "Intel",
+                "location": "Leixlip, KE, Ireland",
+                "date": "3/15/2022",
+                "event": "Announced new investment",
+                "amount": "12 billion",
+                "country": "Ireland",
+                "type of chip": "Intel 4 process technology expand foundry"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    11.083693,
+                    45.003229
+                ]
+            },
+            "bbox": [
+                6.627119,
+                35.492485,
+                18.52052,
+                47.092426
+            ],
+            "properties": {
+                "firm": "Intel",
+                "location": "Italy",
+                "date": "3/15/2022",
+                "event": "announced potential new investment",
+                "country": "Italy",
+                "type of chip": "Back-end manufacturing facility",
+                "direct jobs": 1500,
+                "indirect jobs": 3500
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.628385,
+                    54.372781
+                ]
+            },
+            "bbox": [
+                18.429497,
+                54.274974,
+                18.950379,
+                54.447218
+            ],
+            "properties": {
+                "country": "Poland",
+                "firm": "Intel",
+                "location": "Gdansk, PM, Poland",
+                "date": "3/15/2022",
+                "event": "Announced new investment",
+                "type of chip": "Increase lab space"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.200733,
+                    41.406701
+                ]
+            },
+            "bbox": [
+                2.05247,
+                41.316956,
+                2.22922,
+                41.468282
+            ],
+            "properties": {
+                "country": "Spain",
+                "firm": "Intel",
+                "location": "Barcelona, CT, Spain",
+                "date": "3/15/2022",
+                "event": "Announced new investment",
+                "amount": "",
+                "type of chip": "Join supercomputing labs"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.48333,
+                    47.38333
+                ]
+            },
+            "bbox": [
+                13.46333,
+                47.36333,
+                13.50333,
+                47.40333
+            ],
+            "properties": {
+                "country": "Austria",
+                "firm": "AT&S",
+                "location": "Loebenau, SZ, Austria",
+                "date": "3/3/2022",
+                "amount": "500 million",
+                "event": "Construction begun",
+                "type of chip": "R&D manufacturing",
+                "direct jobs": 700
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.623301,
+                    45.448772
+                ]
+            },
+            "bbox": [
+                8.576842,
+                45.419044,
+                8.658161,
+                45.487915
+            ],
+            "properties": {
+                "country": "Italy",
+                "firm": "MEMC (GlobalWafers subsidiary)",
+                "location": "Novara, NO, Italy",
+                "date": "2/18/2022",
+                "event": "Announced new investment",
+                "type of chip": "Expansion of existing facility - 300mm production"
+            }
+        }
+    ]
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <title>GMF - Semiconductor Investments</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    
+    <!-- Load the Mapbox GL JS -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- Load the `mapbox-gl-geocoder` plugin: https://github.com/mapbox/mapbox-gl-geocoder -->
+		<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+		<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+    
+		<link rel="stylesheet" type="text/css" href="style.css" />
+
+  </head>
+  <body>
+  	<header>
+  		<div class="title-container">
+  			<h1 class="title">Semiconductor Investments</h1>
+  			<div class="about-this-project-container"><div class=about-this-project>i</div></div>
+  		</div>
+  		<div class="top-bar">
+	  		<div class="continent-toggle-container">
+	  			<h3 id="united-states" class="continent-toggle">United States</h3>
+	  			<h3 id="europe" class="continent-toggle">Europe</h3>
+	  		</div>
+	  		<div id="geocoder" class="geocoder"></div>
+  		</div>
+  	</header>
+    <div id='map'></div>
+    <script>
+    // The value for 'accessToken' begins with 'pk...'
+    // https://docs.mapbox.com/accounts/guides/tokens/#default-public-access-token
+    // https://docs.mapbox.com/accounts/guides/tokens/#url-restrictions
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZXJhbm5lc3RhZCIsImEiOiJjbGR6YjA2ejQwemtmM3ZueXlzend6czEyIn0.f5qyCWtqTmxRPPbNOIqaCg'; 
+    const map = new mapboxgl.Map({
+      container: 'map',
+      // Replace YOUR_STYLE_URL with your style URL.
+      style: 'mapbox://styles/erannestad/clderiuxf001001mse0zuadh2', 
+      center: [11.117, 49.409],
+      attributionControl: false,
+      zoom: 4
+    });
+
+    // Add the control to the map. Reference: https://github.com/mapbox/mapbox-gl-geocoder
+		const geocoder = new MapboxGeocoder({
+				accessToken: mapboxgl.accessToken,
+				mapboxgl: mapboxgl,
+				placeholder: "Pan to location...",
+				collapsed: true,
+				clearAndBlurOnEsc: true,
+			})
+		document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+
+		map.addControl(new mapboxgl.AttributionControl({
+			customAttribution: 'Design: <b><a target="_blank" href="https://ericrannestad.com/Design"> Eric Rannestad Studio</a></b>'
+		}));
+
+    map.on('load', () => {
+
+  		checkContinent();
+
+			map.addSource('testLayer', {
+			type: 'geojson',
+			// Use a URL for the value for the `data` property.
+			data: 'https://api.mapbox.com/datasets/v1/erannestad/cldcty6es2m1i26qg1c2k688v/features?access_token=pk.eyJ1IjoiZXJhbm5lc3RhZCIsImEiOiJjamp4dHp3N2ExaHp1M3FycnJsamZ4cGpuIn0.Z3DvBItGT21xpbhnIbJLBg'
+			});
+			 
+			map.addLayer({
+			'id': 'test-layer-id',
+			'type': 'circle',
+			'source': 'testLayer',
+			'clickTolerance': '100px',
+			'paint': {
+				'circle-radius': 5,
+				'circle-stroke-width': 2,
+				'circle-color': '#A92631',
+				'circle-stroke-color': 'white'
+			}
+			});
+		});	
+
+		map.on('click', (event) => {
+		  // If the user clicked on one of your markers, get its information.
+		  const features = map.queryRenderedFeatures(event.point, {
+		    layers: ['test-layer-id'] // replace with your layer name
+		  });
+		  if (!features.length) {
+		    return;
+		  }
+		  const feature = features[0];
+
+		  console.log(feature);
+
+			const popup = new mapboxgl.Popup({ offset: [0, -15] })
+			  .setLngLat(feature.geometry.coordinates)
+			  .setHTML(
+			    `<h4>${feature.properties.firm}</h4><p>${feature.properties.description}</p><p>${feature.properties.date}</p><p>${feature.properties.amount}</p><p><a href="${feature.properties.source1}">${feature.properties.source1}</a></p><p><a href="${feature.properties.source2}">${feature.properties.source2}</a></p>`
+			  )
+			  .addTo(map);
+		});
+
+    </script>
+
+		<script type="text/javascript" src="script.js"></script>
+  </body>
+</html>

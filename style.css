@@ -1,0 +1,141 @@
+@font-face {
+  src: url('fonts/RoslindaleVariable-VF[DisplayCondensed]-Testing.woff2') format("woff2"),
+       url('fonts/RoslindaleVariable-VF[DisplayCondensed]-Testing.woff') format("woff");
+  font-family: 'Roslindale Variable';
+  font-style: normal;
+  font-weight: bold;
+}
+
+font-face {
+  src: url('fonts/Roslindale-DisplayCondensedRegular-Testing.woff2') format("woff2"),
+       url('fonts/Roslindale-DisplayCondensedRegular-Testing.woff') format("woff");
+  font-family: 'Roslindale';
+  font-style: normal;
+  font-weight: normal;
+}
+
+:root{
+    --theme-red: rgb(169 38 49);
+    --theme-blue: rgb(23 60 79);
+    --theme-beige: rgb(247 240 233);
+    --header-font: "Roslindale Variable", "Adobe Garamond Pro", Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+}
+
+
+body { 
+  font-family: var(--header-font);
+  margin: 0; 
+  padding: 0; 
+}
+
+#map { 
+  position: absolute; 
+  top: 0; 
+  bottom: 0; 
+  width: 100%; 
+}
+
+.mapbox-improve-map {
+  display: none;
+}
+
+.mapboxgl-popup-content {
+    position: relative;
+    background: #fff;
+    width: 150px;
+    border-radius: 3px;
+    box-shadow: 0 5px 5px rgb(0 0 0 / 15%);
+    padding: 10px 10px 15px;
+    pointer-events: auto;
+}
+
+.continent-toggle-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    padding: 0px;
+    background: rgb(249 249 249 / 74%);
+    border-radius: 100px;
+    box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%);
+}
+
+.top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    padding: 0;
+}
+
+.continent-toggle {
+  color: rgb(0 0 0 / 40%);
+  cursor: pointer;
+  margin: 0;
+}
+
+.continent-toggle:hover {
+  color: rgb(169 38 49 / 80%);
+}
+
+.continent-toggle#united-states {
+    padding: .5em .75em .5em 1em;
+}
+.continent-toggle#europe {
+    padding: .5em 1em .5em .75em;
+}
+
+.continent-toggle.active {
+  color: var(--theme-red);
+  background: white;
+}
+
+header {
+  padding: 1em;
+  position: absolute;
+  z-index: 10000;
+}
+
+.title-container{
+  position: relative;
+  display: inline-flex;
+  gap: 1em;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.title{
+  display: inline-block;
+  margin: 0;
+}
+
+.about-this-project-container{
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  width: auto;
+}
+
+.about-this-project {
+  width:25px;
+  height: 25px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 100px;
+  overflow: hidden;
+  background-color: var(--theme-blue);
+  box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%);
+}
+
+h1 {
+  line-height: 1;
+  margin-bottom: 0.3em; 
+  font-family: var(--header-font);
+  font-size: clamp(40px, 6vmin, 60px);
+  color: var(--theme-blue);
+}
+
+h3 {
+  line-height: 1;
+  font-family: var(--header-font);
+  font-size: clamp(20px, 2.7vmin, 24px);
+}
