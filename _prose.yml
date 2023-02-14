@@ -6,9 +6,11 @@ prose:
   ignore:
     - index.html
     - script.js
+    - .gitattributes
     - style.css
     - _prose.yml
     - /data
+    - /plugins
     - /fonts
   metadata:
     _posts:
