@@ -1,7 +1,7 @@
 prose:
-  rooturl: 'posts'
-  siteurl: 'http://prose.github.io/starter/'
-  relativeLinks: 'http://prose.github.io/starter/links.jsonp'
+  rooturl: ''
+  siteurl: 'https://ericrannestad.com/semiconductor-map/'
+  relativeLinks: 'https://ericrannestad.com/semiconductor-map/'
   media: 'media'
   ignore:
     - index.html
