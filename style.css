@@ -1,3 +1,12 @@
+/*@font-face {
+  src: url('fonts/Metropolis/Fonts/Webfonts/WOFF/Metropolis-Medium.woff') format("woff"),
+       url('fonts/Metropolis/Fonts/Webfonts/WOFF/Metropolis-Bold.woff') format("woff"),
+       url('fonts/Metropolis/Fonts/Webfonts/WOFF/Metropolis-Thin.woff') format("woff");
+  font-family: 'Metropolis';
+  font-style: normal;
+  font-weight: bold;
+}*/
+
 @font-face {
   src: url('fonts/RoslindaleVariable-VF[DisplayCondensed]-Testing.woff2') format("woff2"),
        url('fonts/RoslindaleVariable-VF[DisplayCondensed]-Testing.woff') format("woff");
@@ -39,15 +48,6 @@ body {
   display: none;
 }
 
-.mapboxgl-popup-content {
-    position: relative;
-    background: #fff;
-    width: 150px;
-    border-radius: 3px;
-    box-shadow: 0 5px 5px rgb(0 0 0 / 15%);
-    padding: 10px 10px 15px;
-    pointer-events: auto;
-}
 
 .continent-toggle-container {
     display: inline-flex;
@@ -55,6 +55,7 @@ body {
     overflow: hidden;
     padding: 0px;
     background: rgb(249 249 249 / 74%);
+    backdrop-filter: blur(4px);
     border-radius: 100px;
     box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%);
 }
@@ -64,6 +65,10 @@ body {
     flex-wrap: wrap;
     gap: 1em;
     padding: 0;
+}
+
+.top-bar *, .title-container *{
+  pointer-events: auto;
 }
 
 .continent-toggle {
@@ -89,9 +94,49 @@ body {
 }
 
 header {
+  pointer-events: none;
   padding: 1em;
   position: absolute;
   z-index: 10000;
+}
+
+.main {
+  z-index: 100;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+/*  box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%);*/
+  width: 50%;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.content-container{
+  box-sizing: border-box;
+  position: relative;
+  border: solid black 2px;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  padding-right: 100px;
+  padding-left: 100px;
+}
+
+.content-container.popup-container{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+}
+
+.content-container .popup{
+  pointer-events: auto !important;
+  z-index: 1000;
+  width: 100%;
+  max-width: 450px;
+  background: rgb(249 249 249 / 74%);
+  box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%);
 }
 
 .title-container{
@@ -138,4 +183,33 @@ h3 {
   line-height: 1;
   font-family: var(--header-font);
   font-size: clamp(20px, 2.7vmin, 24px);
+}
+
+
+
+
+
+/*****************************/
+/*********** POPUP ***********/
+
+.mapboxgl-popup-content {
+  position: relative;
+  min-width: 100px;
+  width: auto;
+  max-width: 200px;
+  border-radius: 3px;
+  padding: 4px;
+  pointer-events: auto;
+}
+
+.mapboxgl-popup-content, .mapboxgl-popup-content.mapboxgl-popup-tip {
+  background: rgb(249 249 249 / 74%);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%);
+}
+
+.feature p {
+  font-family: 'Open Sans', 'Arial Unicode MS Bold';
+  font-weight: 600;
+  margin: 0;
 }
