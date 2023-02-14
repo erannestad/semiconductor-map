@@ -13,7 +13,7 @@ prose:
     - /plugins
     - /fonts
   metadata:
-    _posts:
+    posts:
       - name: "layout"
         field:
           element: "hidden"
@@ -28,7 +28,7 @@ prose:
               value: "apples"
             - name: "Bananas"
               value: "bananas"
-    _posts/static:
+    posts/static:
       - name: "layout"
         field:
           element: "hidden"
