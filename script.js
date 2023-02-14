@@ -6,7 +6,8 @@ var EUbbox = [[-12, 61], [44,30 ]];
 map.changingContinent = false;
 
 unitedStatesToggle.addEventListener("click", function(){
-	toggleClass(unitedStatesToggle, europeToggle, "clicked")	
+	toggleClass(unitedStatesToggle, europeToggle, "clicked");
+	fullPopup('clear', 'clear');
 	map.once('movestart', () => { map.changingContinent = true; });
 	map.fitBounds(USAbbox, {
 		padding: {top: 50, bottom:20, left: 5, right: 5}
@@ -16,7 +17,8 @@ unitedStatesToggle.addEventListener("click", function(){
 unitedStatesToggle.addEventListener("mouseover", peekDirection);
 
 europeToggle.addEventListener("click", function(){ 
-	toggleClass(europeToggle, unitedStatesToggle, "clicked")	
+	toggleClass(europeToggle, unitedStatesToggle, "clicked");
+	fullPopup('clear', 'clear');
 	map.once('movestart', () => { map.changingContinent = true; });
 	map.fitBounds(EUbbox, {
 		padding: {top: 50, bottom:20, left: 5, right: 5}
@@ -110,17 +112,62 @@ function fullPopup(f, task) {
 				});
 				contentContainer.appendChild(popup);
 				var popupHeader = Object.assign(document.createElement('div'), { 
-		    	innerHTML: '<h3>' + f.properties.firm + '</h3>',
+		    	innerHTML: `<h3>${f.properties.firm}</h3>`,
 					className: 'popup-header' 
 				});
 				popup.appendChild(popupHeader);
 				var popupBody = Object.assign(document.createElement('div'), { 
-		    	innerHTML: '<h3>' + f.properties. + '</h3>',
+		    	innerHTML: 
+		    	 `${(f.properties.event) ? '<p>' + f.properties.event + '</p>': `` }
+		    	  ${(f.properties.amount) ? '<p>' + f.properties.amount + '</p>': `` }
+		    		${(f.properties.date) ? '<p>' + f.properties.date + '</p>': `` }
+		    		${(f.properties.location) ? '<p>' + f.properties.location + '</p>': `` }
+		    		${(f.properties.country) ? '<p>' + f.properties.country + '</p>': `` }
+		    		${(f.properties['type of chip']) ? '<p>' + f.properties['type of chip'] + '</p>': `` }`,
 					className: 'popup-body' 
 				});
 				popup.appendChild(popupBody);		
 		}
 }
+
+
+// Hover Popup
+const hoverpopup = new mapboxgl.Popup({
+		closeButton: false,
+		closeOnClick: false,
+		className: 'hover-popup preview',
+		closeOnMove: false,
+		maxWidth: '300px',
+		offset: 10
+});
+
+function createHoverPopup(f) { // create popup
+	  var popupString = "<div class='feature'>";
+  	popupString += "<p class='firm'>" + f.properties.firm + "</p>";
+  	popupString += "</div>";
+		hoverpopup.setLngLat(f.geometry.coordinates);
+		hoverpopup.setHTML(popupString);
+		hoverpopup.addTo(map);
+}
+
+const selectedPopup = new mapboxgl.Popup({
+		closeButton: false,
+		closeOnClick: false,
+		className: 'selected-popup preview',
+		closeOnMove: false,
+		maxWidth: '300px',
+		offset: 10
+});
+
+function createSelectedPopup(f) { // create popup
+	  var popupString = "<div class='feature'>";
+  	popupString += "<p class='firm'>" + f.properties.firm + "</p>";
+  	popupString += "</div>";
+		selectedPopup.setLngLat(f.geometry.coordinates);
+		selectedPopup.setHTML(popupString);
+		selectedPopup.addTo(map);
+}
+
 
 //////////////////////////////////
 // SEMICONDUCTOR LAYER BEHAVIOR //
@@ -133,12 +180,14 @@ map.on('click', (event) => {
 	  });
 	  if (!features.length) { // NO FEATURES CLICKED
 				fullPopup('clear', 'clear');
+				hoverpopup.remove();
+				selectedPopup.remove();
 	  		return;
 	  }
 	  if (features.length) { // FEATURES CLICKED
   		  const feature = features[0];
 			  console.log("clicked feature: ", feature);
-
+				createSelectedPopup(feature);
 				map.flyTo({ // center map on point
 					center: feature.geometry.coordinates
 				});
@@ -154,16 +203,7 @@ map.on("mouseenter", "semiconductors-id", (event) => {
       if (!features.length) { return }
 		  const feature = features[0];
 
-			function createPopup() { // create popup
-				  var popupString = "<div class='feature'>";
-			  	popupString += "<p class='firm'>" + feature.properties.firm + "</p>";
-			  	popupString += "</div>";
-
-	  			previewPopup.setLngLat(feature.geometry.coordinates);
-					previewPopup.setHTML(popupString);
-					previewPopup.addTo(map);
-			}
-			createPopup();
+			createHoverPopup(feature);
 
 			map.setFeatureState(
 				{ source: 'semiconductors', id: 'semiconductors-id' },
@@ -171,7 +211,7 @@ map.on("mouseenter", "semiconductors-id", (event) => {
 });
 
 map.on("mouseleave", "semiconductors-id", () => {
-			previewPopup.remove();
+			hoverpopup.remove();
       map.getCanvas().style.cursor = "default";
 });
 
@@ -192,16 +232,6 @@ map.on('click', 'clusters-circle-id', (e) => {
 				});
 			}
 		);
-});
- 
-// Create a popup, but don't add it to the map yet.
-const previewPopup = new mapboxgl.Popup({
-		closeButton: false,
-		closeOnClick: false,
-		className: 'clusterPopup preview',
-		closeOnMove: true,
-		maxWidth: '300px',
-		offset: 10
 });
 
 
@@ -230,25 +260,20 @@ map.on('mouseenter', 'clusters-circle-id', (event) => {
 		  	popupString += "</div>";
 		  })
 
-			previewPopup.setLngLat(clusterCenter);
-			previewPopup.setHTML(popupString);
-			previewPopup.addTo(map);
+			hoverpopup.setLngLat(clusterCenter);
+			hoverpopup.setHTML(popupString);
+			hoverpopup.addTo(map);
 	  }
 	  
 });
 
 map.on('mouseleave', 'clusters-circle-id', (event) => {
 		map.getCanvas().style.cursor = '';
-		previewPopup.remove();
+		hoverpopup.remove();
 });
 
 //////////////////////////////////
 //////////////////////////////////
-
-
-
-
-
 
 
 map.on('move', () => { 

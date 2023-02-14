@@ -28,8 +28,12 @@ font-face {
     --theme-blue: rgb(23 60 79);
     --theme-beige: rgb(247 240 233);
     --header-font: "Roslindale Variable", "Adobe Garamond Pro", Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    --theme-sans-serif:  "Open Sans", "Arial Unicode MS Bold", "Helvetica", sans-serif;
 }
 
+html{
+  box-sizing: border-box;
+}
 
 body { 
   font-family: var(--header-font);
@@ -58,6 +62,7 @@ body {
     backdrop-filter: blur(4px);
     border-radius: 100px;
     box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%);
+    height: max-content;  
 }
 
 .top-bar {
@@ -114,7 +119,7 @@ header {
 .content-container{
   box-sizing: border-box;
   position: relative;
-  border: solid black 2px;
+/*  border: solid black 2px;*/
   width: 100%;
   height: 100%;
   padding-top: 100px;
@@ -137,6 +142,13 @@ header {
   max-width: 450px;
   background: rgb(249 249 249 / 74%);
   box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%);
+  backdrop-filter: blur(4px);
+}
+
+.popup{
+  font-family: var(--theme-sans-serif);
+  padding: 1em;
+
 }
 
 .title-container{
@@ -209,7 +221,52 @@ h3 {
 }
 
 .feature p {
-  font-family: 'Open Sans', 'Arial Unicode MS Bold';
+  font-family: var(--theme-sans-serif);
   font-weight: 600;
   margin: 0;
+}
+
+
+
+
+
+/*************************************/
+/*********** MEDIA QUERIES ***********/
+
+@media only screen and (max-width: 650px) {
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h3{
+    font-size: 18px;
+  }
+
+  .title-container {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  .main {
+    z-index: 100;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40vh;
+    pointer-events: none;
+  }
+
+  .content-container {
+    padding: 0;
+  }
+
+  .content-container .popup {
+    overflow: scroll;
+  }
+
+  .geocoder {
+    display: none;
+  }
 }

@@ -76,7 +76,7 @@
 			// Use a URL for the value for the `data` property.
 			data: 'https://api.mapbox.com/datasets/v1/erannestad/cldcty6es2m1i26qg1c2k688v/features?access_token=pk.eyJ1IjoiZXJhbm5lc3RhZCIsImEiOiJjamp4dHp3N2ExaHp1M3FycnJsamZ4cGpuIn0.Z3DvBItGT21xpbhnIbJLBg',
 			'cluster': true,
-			'clusterRadius' : 10,
+			'clusterRadius' : 16,
 			'clusterProperties': {
 				// https://docs.mapbox.com/mapbox-gl-js/style-spec/sources/#geojson-clusterProperties
 				'titles': ["concat",
@@ -96,11 +96,11 @@
 				'circle-radius': [
 					'step',
 					['get', 'point_count'],
-					9,  	// 10px default
+					10,  	// 10px default
 					5, 		// 5+ features
-					12,		// 14px
-					10, 	// 8+ features
-					16		// 16px
+					13,		// 12px
+					12, 	// 12+ features
+					20		// 16px
 				]
 				}
 			});
@@ -125,14 +125,11 @@
 			'clickTolerance': '100px',
 			'paint': {
 				// Make circles larger as the user zooms from z12 to z22.
-		    "circle-radius": [
-		    		'case',
-						['boolean', ['feature-state', 'hover'], false],
-						20, 6,
-		        // "interpolate", ["linear"], ["zoom"],
-		        // 2, 3, 	// when zoom is 4, set each feature's circle radius to 5px
-		        // 4, 5, 	// when zoom is 4, set each feature's circle radius to 5px
-		        // 14, 20  // when zoom is 14, set each feature's circle radius to 20px
+			"circle-radius": [
+			        "interpolate", ["linear"], ["zoom"],
+			        0, 3,
+			        16, 16
+			    
 		    ],
 				'circle-stroke-width': 2,
 				'circle-color': '#A92631',
