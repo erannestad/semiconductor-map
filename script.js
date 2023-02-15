@@ -99,6 +99,7 @@ function fullPopup(f, task) {
 		var main = document.querySelector('.main');
 
 		if (task == 'clear') {
+				selectedPopup.remove();
 				main.innerHTML = ''; //clear main
 				return; //return if clearing
 		} if (task == 'create') {
@@ -111,22 +112,43 @@ function fullPopup(f, task) {
 					className: 'popup' 
 				});
 				contentContainer.appendChild(popup);
-				var popupHeader = Object.assign(document.createElement('div'), { 
-		    	innerHTML: `<h3>${f.properties.firm}</h3>`,
-					className: 'popup-header' 
+				var popupControls = Object.assign(document.createElement('div'), { 
+		    	innerHTML: ``,
+					className: 'popup-controls' 
 				});
-				popup.appendChild(popupHeader);
-				var popupBody = Object.assign(document.createElement('div'), { 
+				popup.appendChild(popupControls);
+				var popupContent = Object.assign(document.createElement('div'), { 
 		    	innerHTML: 
-		    	 `${(f.properties.event) ? '<p>' + f.properties.event + '</p>': `` }
-		    	  ${(f.properties.amount) ? '<p>' + f.properties.amount + '</p>': `` }
-		    		${(f.properties.date) ? '<p>' + f.properties.date + '</p>': `` }
-		    		${(f.properties.location) ? '<p>' + f.properties.location + '</p>': `` }
-		    		${(f.properties.country) ? '<p>' + f.properties.country + '</p>': `` }
-		    		${(f.properties['type of chip']) ? '<p>' + f.properties['type of chip'] + '</p>': `` }`,
-					className: 'popup-body' 
+		    	 `<div class="popup-header">
+		    	 		<div class="meta-bar">
+		    				${(f.properties.date) ? '<p>' + f.properties.date + '</p>': `` }
+			    			${(f.properties.location) ? '<p>' + f.properties.location + '</p>': `` }
+		    	 		</div>
+		    	 		<div class="title">
+		    	 			${(f.properties.firm) ? '<h2 class="firm">' + f.properties.firm + '</h2>': `` }
+		    	 			${(f.properties.event) ? '<h4 class="event">' + f.properties.event + '</h4>': `` }
+		    	 		</div>
+		    	 	</div>
+		    	 	<div class="popup-body">
+		    	 		<section>
+		    	 			<div class="stat">
+			    	  		${(f.properties.amount) ? '<p>' + f.properties.amount + '</p>': `` }
+			    	  	</div
+			    	  	<div class="stat">
+			    				${(f.properties['type of chip']) ? '<p>' + f.properties['type of chip'] + '</p>': `` }
+			    			</div>
+			    		<section>
+			    	</div>
+		    		<div class="popup-footer"
+		    			<div class="sources">
+			    				${(f.properties.source1) ? '<a>' + f.properties.source1 + '</a>': `` }
+			    				${(f.properties.source2) ? '<a>' + f.properties.source2 + '</a>': `` }
+			    				${(f.properties.source3) ? '<a>' + f.properties.source3 + '</a>': `` }
+		    			</div>
+		    		</div>`,
+					className: 'popup-content' 
 				});
-				popup.appendChild(popupBody);		
+				popup.appendChild(popupContent);		
 		}
 }
 
@@ -188,8 +210,10 @@ map.on('click', (event) => {
   		  const feature = features[0];
 			  console.log("clicked feature: ", feature);
 				createSelectedPopup(feature);
-				map.flyTo({ // center map on point
-					center: feature.geometry.coordinates
+
+				map.easeTo({
+					center: feature.geometry.coordinates,
+					duration: 700,
 				});
 
 				fullPopup(feature, 'create');
