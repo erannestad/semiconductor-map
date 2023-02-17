@@ -10,8 +10,9 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
 
     <!-- Load the Maplibre -->
-		<!-- <script src="https://unpkg.com/maplibre-gl@#.#.#/dist/maplibre-gl.js"></script> -->
-		<!-- <link href="https://unpkg.com/maplibre-gl@#.#.#/dist/maplibre-gl.css" rel="stylesheet"/> -->
+		<script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+		<script src="data/stylesheet/mapbox/modified/modifiedStyle.js"></script>
+		<link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
 
     <!-- Load the `mapbox-gl-geocoder` plugin: https://github.com/mapbox/mapbox-gl-geocoder -->
 		<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
@@ -43,32 +44,105 @@
   	<div class='main'></div>
     <div id='map'></div>
     <script>
+
+
+
+
+
+function parseUrl(url) {
+    const urlRe = /^(\w+):\/\/([^/?]*)(\/[^?]+)?\??(.+)?/;
+    const parts = url.match(urlRe);
+    if (!parts) {
+        throw new Error('Unable to parse URL object');
+    }
+    return {
+        protocol: parts[1],
+        authority: parts[2],
+        path: parts[3] || '/',
+        params: parts[4] ? parts[4].split('&') : []
+    };
+}
+
+
     // The value for 'accessToken' begins with 'pk...'
     // https://docs.mapbox.com/accounts/guides/tokens/#default-public-access-token
     // https://docs.mapbox.com/accounts/guides/tokens/#url-restrictions
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZXJhbm5lc3RhZCIsImEiOiJjbGR6YjA2ejQwemtmM3ZueXlzend6czEyIn0.f5qyCWtqTmxRPPbNOIqaCg'; 
-    const map = new mapboxgl.Map({
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZXJhbm5lc3RhZCIsImEiOiJjbGR6YjA2ejQwemtmM3ZueXlzend6czEyIn0.f5qyCWtqTmxRPPbNOIqaCg';
+ 		maptilerKey = 'R3GAm9JtORrlJIhF3vF9';
+
+
+    const map = new maplibregl.Map({
       container: 'map',
-      // Replace YOUR_STYLE_URL with your style URL.
-      style: 'mapbox://styles/erannestad/clderiuxf001001mse0zuadh2', 
+      // style: 'https://api.mapbox.com/styles/v1/erannestad/clderiuxf001001mse0zuadh2/?access_token=pk.eyJ1IjoiZXJhbm5lc3RhZCIsImEiOiJjamp4dHp3N2ExaHp1M3FycnJsamZ4cGpuIn0.Z3DvBItGT21xpbhnIbJLBg', 
+      // style: `https://api.maptiler.com/maps/2a010c7e-7b57-4e6c-b09a-b11224507e7f/style.json?key=${maptilerKey}`, // maptiler stylesheet
+      // style: `data/stylesheet/maputnik/basic.json`, // local stylesheet
+      // style: {
+			//     "version": 8,
+			//     "name": "Mapbox Streets",
+			//     // "sprite": "https://api.mapbox.com/sprites/mapbox/streets-v8",
+			//     "glyphs": "data/stylesheet/custom/fonts{fontstack}/{range}.pbf",
+			// 		sources: {
+			// 			mapbox: {
+			// 				type: 'vector',
+			// 				attribution: 'Mapbox',
+			// 				tiles: [`https://a.tiles.mapbox.com/v4/mapbox.mapbox-streets-v7/{z}/{x}/{y}.vector.pbf?access_token=${mapboxgl.accessToken}`]
+			// 			}
+			// 		},
+			//     "layers": []
+			// },
+			// style: {  //https://github.com/maplibre/maplibre-gl-js/discussions/1226#discussioncomment-2695633
+			// 	version: 8,
+			// 	sources: {
+			// 		mapbox: {
+			// 			type: 'vector',
+			// 			attribution: 'Mapbox',
+			// 			tiles: [`https://a.tiles.mapbox.com/v4/mapbox.mapbox-streets-v7/{z}/{x}/{y}.vector.pbf?access_token=${mapboxgl.accessToken}`]
+			// 		},
+			// 	},
+		  //   glyphs: `https://a.tiles.mapbox.com/v4/fontstack/{fontstack}/{range}.pbf?access_token=${mapboxgl.accessToken}`,
+			// 	layers: modifiedStyle
+			// },	
+		  style: {
+			    "version": 8,
+			    "name": "Blank Style",
+			    "glyphs": "data/stylesheet/custom/fonts{fontstack}/{range}.pbf",
+					"sources": {
+						'raster-tiles': {
+						'type': 'raster',
+						// 'tiles': ['https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg'],
+						// 'tiles': ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+						'tiles': ['https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}'],
+						'tileSize': 256,
+						}
+					},
+			    'layers': [
+						{
+							'id': 'simple-tiles',
+							'type': 'raster',
+							'source': 'raster-tiles',
+							'minzoom': 0,
+							'maxzoom': 22
+						}
+					]
+			},
       center: [11.117, 49.409],
       attributionControl: false,
       zoom: 4
     });
 
     // Add the control to the map. Reference: https://github.com/mapbox/mapbox-gl-geocoder
-		const geocoder = new MapboxGeocoder({
-				accessToken: mapboxgl.accessToken,
-				mapboxgl: mapboxgl,
-				placeholder: "Pan to location...",
-				collapsed: true,
-				clearAndBlurOnEsc: true,
-			})
-		document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+		// const geocoder = new MapboxGeocoder({
+		// 		accessToken: mapboxgl.accessToken,
+		// 		mapboxgl: mapboxgl,
+		// 		placeholder: "Pan to location...",
+		// 		collapsed: true,
+		// 		clearAndBlurOnEsc: true,
+		// 	})
+		// document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
 
 		map.addControl(new mapboxgl.AttributionControl({
-			customAttribution: 'Design: <b><a target="_blank" href="https://ericrannestad.com/Design"> Eric Rannestad Studio</a></b>'
+			customAttribution: 'Design: <b><a target="_blank" href="https://ericrannestad.com/Design"> Eric Rannestad Studio</a></b>  |  © OpenStreetMap'
 		}));
 
     map.on('load', () => {
@@ -80,14 +154,14 @@
 			// Use a URL for the value for the `data` property.
 			data: 'https://api.mapbox.com/datasets/v1/erannestad/cldcty6es2m1i26qg1c2k688v/features?access_token=pk.eyJ1IjoiZXJhbm5lc3RhZCIsImEiOiJjamp4dHp3N2ExaHp1M3FycnJsamZ4cGpuIn0.Z3DvBItGT21xpbhnIbJLBg',
       'generateId': true, //This ensures that all features have unique IDs           
-			'cluster': true,
-			'clusterRadius' : 16,
-			'clusterProperties': {
-				// https://docs.mapbox.com/mapbox-gl-js/style-spec/sources/#geojson-clusterProperties
-				'titles': ["concat",
-						["concat", ["get", "firm"], ", "], 
-					]
-				}
+			// 'cluster': true,
+			// 'clusterRadius' : 16
+			// 'clusterProperties': {
+			// 	// https://docs.mapbox.com/mapbox-gl-js/style-spec/sources/#geojson-clusterProperties
+			// 	'titles': ["concat",
+			// 			["concat", ["get", "firm"], ", "], 
+			// 		]
+			// 	}
 			});
 
 
@@ -134,30 +208,12 @@
 			        "interpolate", ["linear"], ["zoom"],
 			        0, 3,
 			        16, 16
+			    
 		    ],
-	    	'circle-stroke-color': [
-			    	'case',
-						['boolean', ['feature-state', 'hover'], false],
-						'#000',
-						'#A92631'
-				],
+	    	'circle-stroke-color': '#000',
 				'circle-stroke-width': 8,
 				'circle-stroke-opacity': 0,
-				// 'circle-color': '#A92631',
-				// Color circles by ethnicity, using a `match` expression.
-				'circle-color': [
-					'match',
-					['get', 'type'],
-						'Chip',
-						'#fbb03b',
-						'Supply Chain',
-						'#223b53',
-						'Hispanic',
-						'#e55e5e',
-						'Asian',
-						'#3bb2d0',
-						/* other */ '#A92631'
-				],
+				'circle-color': '#A92631',
 				'circle-stroke-color': 'white'
 			}
 			});
@@ -165,6 +221,6 @@
 
     </script>
 
-		<script type="text/javascript" src="script_mapbox.js"></script>
+		<script type="text/javascript" src="libre.js"></script>
   </body>
 </html>

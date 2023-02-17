@@ -45,7 +45,7 @@ function checkContinent() {
 }
 
 
-function peekDirection() {
+function peekDirection() { //works
 
 	initialCenter = map.getCenter();
 	initialZoom = map.getZoom();
@@ -171,7 +171,7 @@ let getFlagURL = (countryCode) => 'https://countryflagsapi.com/svg/' + countryCo
 
 
 
-function getFlagEmoji(countryCode) {
+function getFlagEmoji(countryCode) { //works
   const codePoints = countryCode
     .toLowerCase()
     .split('')
@@ -179,7 +179,7 @@ function getFlagEmoji(countryCode) {
 }
 
 // Hover Popup
-const hoverpopup = new mapboxgl.Popup({
+const hoverpopup = new maplibregl.Popup({
 		closeButton: false,
 		closeOnClick: false,
 		className: 'hover-popup preview',
@@ -197,7 +197,7 @@ function createHoverPopup(f) { // create popup
 		hoverpopup.addTo(map);
 }
 
-const selectedPopup = new mapboxgl.Popup({
+const selectedPopup = new maplibregl.Popup({
 		closeButton: false,
 		closeOnClick: false,
 		className: 'selected-popup preview',
@@ -255,9 +255,8 @@ map.on("mouseenter", "semiconductors-id", (event) => {
 			createHoverPopup(feature);
 
 			map.setFeatureState(
-				{ id: feature.id , source: 'semiconductors' },
-				{ hover: true }
-			);
+				{ source: 'semiconductors', id: 'semiconductors-id' },
+				{ hover: true })
 });
 
 map.on("mouseleave", "semiconductors-id", () => {
