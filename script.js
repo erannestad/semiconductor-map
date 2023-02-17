@@ -45,7 +45,7 @@ function checkContinent() {
 }
 
 
-function peekDirection() {
+function peekDirection() { //works
 
 	initialCenter = map.getCenter();
 	initialZoom = map.getZoom();
@@ -121,8 +121,12 @@ function fullPopup(f, task) {
 		    	innerHTML: 
 		    	 `<div class="popup-header">
 		    	 		<div class="meta-bar">
-		    				${(f.properties.date) ? '<p>' + f.properties.date + '</p>': `` }
-			    			${(f.properties.location) ? '<p>' + f.properties.location + '</p>': `` }
+		    				<div class="meta-box location-meta">
+		    						${(f.properties.date) ? '<p>' + f.properties.date + '</p>': `` }
+		    				</div>
+		    				<div class="meta-box location-meta">
+			    					<img class="country-flag" crossorigin="anonymous" src="${getFlagURL(f.properties.country)}"> ${(f.properties.location) ? '<p>' + f.properties.location + '</p>': `` }
+		    				</div>
 		    	 		</div>
 		    	 		<div class="title">
 		    	 			${(f.properties.firm) ? '<h2 class="firm">' + f.properties.firm + '</h2>': `` }
@@ -130,20 +134,29 @@ function fullPopup(f, task) {
 		    	 		</div>
 		    	 	</div>
 		    	 	<div class="popup-body">
-		    	 		<section>
-		    	 			<div class="stat">
-			    	  		${(f.properties.amount) ? '<p>' + f.properties.amount + '</p>': `` }
-			    	  	</div
-			    	  	<div class="stat">
-			    				${(f.properties['type of chip']) ? '<p>' + f.properties['type of chip'] + '</p>': `` }
+		    	 		<section class="stat-section ${(f.properties.amount || f.properties['type of chip']) ? 'supplied' : ``}">
+		    	 			<div class="stat ${(f.properties.amount) ? 'supplied' : `` }">
+			    	  		${(f.properties.amount) ? 
+			    	  		'<p class="label">INVESTMENT</p>' +
+		    	  			'<p>' + f.properties.amount + '</p>' +
+		    	  			'<p class="footnote">' + addProperty(f.properties['amount-description']) + '</p>'
+		    	  			: `` }
+			    	  	</div>
+			    	  	<div class="stat ${(f.properties['type of chip']) ? 'supplied' : ``} ">
+			    				${(f.properties['type of chip']) ? 
+			    	  		'<p class="label">TYPE</p>' +
+			    				'<p>' + f.properties['type of chip'] + '</p>' +
+		    	  			'<p class="footnote">' + addProperty(f.properties['type-description']) + '</p>'
+									: `` }
 			    			</div>
-			    		<section>
+			    		</section>
 			    	</div>
 		    		<div class="popup-footer"
 		    			<div class="sources">
-			    				${(f.properties.source1) ? '<a>' + f.properties.source1 + '</a>': `` }
-			    				${(f.properties.source2) ? '<a>' + f.properties.source2 + '</a>': `` }
-			    				${(f.properties.source3) ? '<a>' + f.properties.source3 + '</a>': `` }
+		    					${(f.properties.source1 || f.properties.source2 || f.properties.source3 || f.properties.source4) ? 
+		    						'<p class="label">SOURCES</p>'
+			    					(f.properties.source1) ? '<a>' + f.properties.source1 + '</a>': ``
+									: `` }
 		    			</div>
 		    		</div>`,
 					className: 'popup-content' 
@@ -153,8 +166,20 @@ function fullPopup(f, task) {
 }
 
 
+let addProperty = (prop) => (prop) ? prop : '';
+let getFlagURL = (countryCode) => 'https://countryflagsapi.com/svg/' + countryCode.toLowerCase();
+
+
+
+function getFlagEmoji(countryCode) { //works
+  const codePoints = countryCode
+    .toLowerCase()
+    .split('')
+  return String.fromCodePoint(...codePoints);
+}
+
 // Hover Popup
-const hoverpopup = new mapboxgl.Popup({
+const hoverpopup = new maplibregl.Popup({
 		closeButton: false,
 		closeOnClick: false,
 		className: 'hover-popup preview',
@@ -172,7 +197,7 @@ function createHoverPopup(f) { // create popup
 		hoverpopup.addTo(map);
 }
 
-const selectedPopup = new mapboxgl.Popup({
+const selectedPopup = new maplibregl.Popup({
 		closeButton: false,
 		closeOnClick: false,
 		className: 'selected-popup preview',

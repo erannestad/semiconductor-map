@@ -27,6 +27,7 @@ font-face {
     --theme-red: rgb(169 38 49);
     --theme-blue: rgb(23 60 79);
     --theme-beige: rgb(247 240 233);
+    --theme-grey: rgb(128 128 128);
     --header-font: "Roslindale Variable", "Adobe Garamond Pro", Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
     --theme-sans-serif:  "Open Sans", "Arial Unicode MS Bold", "Helvetica", sans-serif;
 }
@@ -216,6 +217,10 @@ h5 {
   font-size: clamp(14px, 2vmin, 18px);
 }
 
+.footnote {
+  font-size: 12px;
+}
+
 
 
 /*****************************/
@@ -270,20 +275,60 @@ h5 {
   margin-bottom: 0px;
 }
 
+.stat-section.supplied {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.stat.supplied {
+  flex-basis: auto;
+  min-width: 33.33%;
+  flex-grow: 2;
+}
+
 .meta-bar {
   display: inline-flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
 .meta-bar p {
-    margin: 0;
-    font-family: var(--theme-sans-serif);
-    font-size: 12px;
-    background: white;
-    padding: 2px 8px 2px 8px;
-    border-radius: 100px;
-    border: solid 1px #e7e7e7;
-  }
+  margin: 0;
+  color: var(--theme-red);
+  letter-spacing: .5px;
+  font-size: 11px;
+}
+
+.meta-bar .meta-box {
+  font-family: var(--theme-sans-serif);
+  font-size: 12px;
+  background: white;
+  padding: 2px 8px 2px 8px;
+  border-radius: 100px;
+  border: solid 1px #e7e7e7;
+} 
+
+.location-meta {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.location-meta .country-flag {
+  height: 9px;
+  width: 15px;
+  background-color: #e7e7e7;
+  margin-top: 4px;
+}
+
+.label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--theme-grey);  
+  padding-bottom: 2px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--theme-grey);
+}
 
 
 

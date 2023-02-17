@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <title>GMF - Semiconductor Investments</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    
+    <!-- Load the Mapbox GL JS -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- Load the Maplibre -->
+		<!-- <script src="https://unpkg.com/maplibre-gl@#.#.#/dist/maplibre-gl.js"></script> -->
+		<!-- <link href="https://unpkg.com/maplibre-gl@#.#.#/dist/maplibre-gl.css" rel="stylesheet"/> -->
+
+    <!-- Load the `mapbox-gl-geocoder` plugin: https://github.com/mapbox/mapbox-gl-geocoder -->
+		<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+		<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+		<!-- Stylesheet -->
+		<link rel="stylesheet" type="text/css" href="style.css" />
+
+  </head>
+  <body>
+  	<header>
+  		<div class="title-container">
+  			<h1 class="title">Semiconductor Investments</h1>
+  			<div class="about-this-project-container"><div class=about-this-project>i</div></div>
+  		</div>
+  		<div class="top-bar">
+	  		<div class="continent-toggle-container">
+	  			<h3 id="united-states" class="continent-toggle">United States</h3>
+	  			<h3 id="europe" class="continent-toggle">Europe</h3>
+	  		</div>
+	  		<div id="geocoder" class="geocoder"></div>
+  		</div>
+  	</header>
+  	<div class='main'></div>
+    <div id='map'></div>
+    <script>
+    // The value for 'accessToken' begins with 'pk...'
+    // https://docs.mapbox.com/accounts/guides/tokens/#default-public-access-token
+    // https://docs.mapbox.com/accounts/guides/tokens/#url-restrictions
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZXJhbm5lc3RhZCIsImEiOiJjbGR6YjA2ejQwemtmM3ZueXlzend6czEyIn0.f5qyCWtqTmxRPPbNOIqaCg'; 
+    const map = new mapboxgl.Map({
+      container: 'map',
+      // Replace YOUR_STYLE_URL with your style URL.
+      style: 'mapbox://styles/erannestad/clderiuxf001001mse0zuadh2', 
+      center: [11.117, 49.409],
+      attributionControl: false,
+      zoom: 4
+    });
+
+    // Add the control to the map. Reference: https://github.com/mapbox/mapbox-gl-geocoder
+		const geocoder = new MapboxGeocoder({
+				accessToken: mapboxgl.accessToken,
+				mapboxgl: mapboxgl,
+				placeholder: "Pan to location...",
+				collapsed: true,
+				clearAndBlurOnEsc: true,
+			})
+		document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+
+		map.addControl(new mapboxgl.AttributionControl({
+			customAttribution: 'Design: <b><a target="_blank" href="https://ericrannestad.com/Design"> Eric Rannestad Studio</a></b>'
+		}));
+
+    map.on('load', () => {
+
+  		checkContinent();
+
+			map.addSource('semiconductors', {
+			type: 'geojson',
+			// Use a URL for the value for the `data` property.
+			data: 'https://api.mapbox.com/datasets/v1/erannestad/cldcty6es2m1i26qg1c2k688v/features?access_token=pk.eyJ1IjoiZXJhbm5lc3RhZCIsImEiOiJjamp4dHp3N2ExaHp1M3FycnJsamZ4cGpuIn0.Z3DvBItGT21xpbhnIbJLBg',
+      'generateId': true, //This ensures that all features have unique IDs           
+			'cluster': true,
+			'clusterRadius' : 16,
+			'clusterProperties': {
+				// https://docs.mapbox.com/mapbox-gl-js/style-spec/sources/#geojson-clusterProperties
+				'titles': ["concat",
+						["concat", ["get", "firm"], ", "], 
+					]
+				}
+			});
+
+
+			map.addLayer({
+				id: 'clusters-circle-id',
+				type: 'circle',
+				source: 'semiconductors',
+				filter: ['has', 'point_count'],
+				paint: {
+				'circle-color': '#51bbd6',
+				'circle-radius': [
+					'step',
+					['get', 'point_count'],
+					10,  	// 10px default
+					5, 		// 5+ features
+					13,		// 12px
+					12, 	// 12+ features
+					20		// 16px
+				]
+				}
+			});
+			map.addLayer({
+				id: 'cluster-symbol-id',
+				type: 'symbol',
+				source: 'semiconductors',
+				filter: ['has', 'point_count'],
+				layout: {
+					'text-field': ['get', 'point_count_abbreviated'],
+					'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+					'text-size': 12
+				}
+			});
+			 
+			 
+			map.addLayer({
+			'id': 'semiconductors-id',
+			'type': 'circle',
+			'source': 'semiconductors',
+			'filter' : ['!', ['has', 'point_count']],
+			'clickTolerance': '100px',
+			'paint': {
+				// Make circles larger as the user zooms from z12 to z22.
+				"circle-radius": [
+			        "interpolate", ["linear"], ["zoom"],
+			        0, 3,
+			        16, 16
+		    ],
+	    	'circle-stroke-color': [
+			    	'case',
+						['boolean', ['feature-state', 'hover'], false],
+						'#000',
+						'#A92631'
+				],
+				'circle-stroke-width': 8,
+				'circle-stroke-opacity': 0,
+				// 'circle-color': '#A92631',
+				// Color circles by ethnicity, using a `match` expression.
+				'circle-color': [
+					'match',
+					['get', 'type'],
+						'Chip',
+						'#fbb03b',
+						'Supply Chain',
+						'#223b53',
+						'Hispanic',
+						'#e55e5e',
+						'Asian',
+						'#3bb2d0',
+						/* other */ '#A92631'
+				],
+				'circle-stroke-color': 'white'
+			}
+			});
+		});	
+
+    </script>
+
+		<script type="text/javascript" src="script_mapbox.js"></script>
+  </body>
+</html>
