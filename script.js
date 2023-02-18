@@ -150,6 +150,20 @@ function fullPopup(f, task) {
 									: `` }
 			    			</div>
 			    		</section>
+		    	 		<section class="stat-section jobs ${(f.properties['direct jobs'] || f.properties['indirect jobs']) ? 'supplied' : ``}">
+		    	 			<div class="stat-container ${(f.properties['direct jobs']) ? 'supplied' : `hide` }">
+			    	  		${(f.properties['direct jobs']) ? 
+			    	  		'<p class="label">DIRECT JOBS</p>' +
+		    	  			'<p class="stat">' + f.properties['direct jobs'] + '</p>' 
+		    	  			: `` }
+			    	  	</div>
+			    	  	<div class="stat-container ${(f.properties['indirect jobs']) ? 'supplied' : `hide`} ">
+			    				${(f.properties['indirect jobs']) ? 
+			    	  		'<p class="label">INDIRECT JOBS</p>' +
+			    				'<p class="stat">' + f.properties['indirect jobs'] + '</p>' 
+									: `` }
+			    			</div>
+			    		</section>
 			    	</div>
 		    		<div class="popup-footer"
 		    			<div class="sources">

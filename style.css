@@ -278,13 +278,13 @@ h5 {
 .stat-section.supplied {
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
+  gap: 0em 1em; /* no row gap */
 }
 
 .stat-container.supplied {
   flex-basis: auto;
   min-width: 33.33%;
-  flex-grow: 2;
+/*  flex-grow: 1;*/
 }
 
 .stat-container.hide, .stat-container .footnote.false {
@@ -298,10 +298,18 @@ h5 {
     display: inline-block;
     /* border: #e5e5e5 1px solid; */
     border-radius: 16px;
-    background-color: var(--theme-red);
-    color: white;
+/*    color: white;*/
+    color: var(--theme-beige);
     font-weight: 600;
     font-size: 14px;
+}
+
+.stat {
+    background-color: var(--theme-red);
+}
+
+.jobs .stat {
+  background-color: var(--theme-blue);
 }
 
 .meta-bar {
