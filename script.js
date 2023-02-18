@@ -167,7 +167,7 @@ function fullPopup(f, task) {
 			    	</div>
 		    		<div class="popup-footer">
 		    			<div class="sources">
-		    						<p class="label">SOURCES</p>
+	    							${(f.properties['source1 link'] || f.properties['source1 label'] || f.properties['source2 link'] || f.properties['source2 label'] || f.properties['source3 link'] || f.properties['source3 label'] || f.properties['source4 link'] || f.properties['source4 label']) ? '<p class="label">SOURCES</p>': ``}
 	    							<ol>
 		    							${(f.properties['source1 link'] || f.properties['source1 label']) ? '<li class="source" ><a href="' + f.properties['source1 link'] + '" target="_blank" >' + f.properties['source1 label'] + '</a></li>': ``}
 		    							${(f.properties['source2 link'] || f.properties['source2 label']) ? '<li class="source" ><a href="' + f.properties['source2 link'] + '" target="_blank" >' + f.properties['source2 label'] + '</a></li>': ``}

@@ -150,13 +150,29 @@ function fullPopup(f, task) {
 									: `` }
 			    			</div>
 			    		</section>
-			    	</div>
-		    		<div class="popup-footer"
-		    			<div class="sources">
-		    					${(f.properties.source1 || f.properties.source2 || f.properties.source3 || f.properties.source4) ? 
-		    						'<p class="label">SOURCES</p>'
-			    					(f.properties.source1) ? '<a>' + f.properties.source1 + '</a>': ``
+		    	 		<section class="stat-section jobs ${(f.properties['direct jobs'] || f.properties['indirect jobs']) ? 'supplied' : ``}">
+		    	 			<div class="stat-container ${(f.properties['direct jobs']) ? 'supplied' : `hide` }">
+			    	  		${(f.properties['direct jobs']) ? 
+			    	  		'<p class="label">DIRECT JOBS</p>' +
+		    	  			'<p class="stat">' + f.properties['direct jobs'] + '</p>' 
+		    	  			: `` }
+			    	  	</div>
+			    	  	<div class="stat-container ${(f.properties['indirect jobs']) ? 'supplied' : `hide`} ">
+			    				${(f.properties['indirect jobs']) ? 
+			    	  		'<p class="label">INDIRECT JOBS</p>' +
+			    				'<p class="stat">' + f.properties['indirect jobs'] + '</p>' 
 									: `` }
+			    			</div>
+			    		</section>
+			    	</div>
+		    		<div class="popup-footer">
+		    			<div class="sources">
+	    							${(f.properties['source1 link'] || f.properties['source1 label'] || f.properties['source2 link'] || f.properties['source2 label'] || f.properties['source3 link'] || f.properties['source3 label'] || f.properties['source4 link'] || f.properties['source4 label']) ? '<p class="label">SOURCES</p>': ``}
+	    							<ol>
+		    							${(f.properties['source1 link'] || f.properties['source1 label']) ? '<li class="source" ><a href="' + f.properties['source1 link'] + '" target="_blank" >' + f.properties['source1 label'] + '</a></li>': ``}
+		    							${(f.properties['source2 link'] || f.properties['source2 label']) ? '<li class="source" ><a href="' + f.properties['source2 link'] + '" target="_blank" >' + f.properties['source2 label'] + '</a></li>': ``}
+		    							${(f.properties['source3 link'] || f.properties['source3 label']) ? '<li class="source" ><a href="' + f.properties['source3 link'] + '" target="_blank" >' + f.properties['source3 label'] + '</a></li>': ``}
+		    						</ol>
 		    			</div>
 		    		</div>`,
 					className: 'popup-content' 
