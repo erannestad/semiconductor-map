@@ -207,7 +207,7 @@ h3 {
 h4 {
   line-height: 1.3;
   font-family: var(--theme-sans-serif);
-  font-size: clamp(20px, 2.7vmin, 24px);
+  font-size: clamp(20px, 2vmin, 24px);
 }
 
 h5 {
@@ -258,9 +258,9 @@ h5 {
 .popup-header .title{
   display: block;
   margin-top: 24px;
-  padding-bottom: 16px;
+/*  padding-bottom: 16px;*/
   margin-bottom: 16px;
-  border-bottom: white solid 8px;
+/*  border-bottom: white solid 8px;*/
 }
 
 .popup-header .title .firm{
@@ -269,8 +269,8 @@ h5 {
   margin-bottom: 8px;
 }
 .popup-header .title .event{
-  color: var(--theme-blue);
-  font-style: italic;
+  color: var(--theme-red);
+/*  font-style: italic;*/
   margin-top: 8px;
   margin-bottom: 0px;
 }
@@ -281,10 +281,27 @@ h5 {
   gap: 1em;
 }
 
-.stat.supplied {
+.stat-container.supplied {
   flex-basis: auto;
   min-width: 33.33%;
   flex-grow: 2;
+}
+
+.stat-container.hide, .stat-container .footnote.false {
+  display: none;
+}
+
+.stat {
+    margin: 0;
+    padding: 4px 12px 4px 12px;
+    background: white;
+    display: inline-block;
+    /* border: #e5e5e5 1px solid; */
+    border-radius: 16px;
+    background-color: var(--theme-red);
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .meta-bar {

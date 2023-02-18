@@ -135,18 +135,18 @@ function fullPopup(f, task) {
 		    	 	</div>
 		    	 	<div class="popup-body">
 		    	 		<section class="stat-section ${(f.properties.amount || f.properties['type of chip']) ? 'supplied' : ``}">
-		    	 			<div class="stat ${(f.properties.amount) ? 'supplied' : `` }">
+		    	 			<div class="stat-container ${(f.properties.amount) ? 'supplied' : `hide` }">
 			    	  		${(f.properties.amount) ? 
 			    	  		'<p class="label">INVESTMENT</p>' +
-		    	  			'<p>' + f.properties.amount + '</p>' +
-		    	  			'<p class="footnote">' + addProperty(f.properties['amount-description']) + '</p>'
+		    	  			'<p class="stat">' + f.properties.amount + '</p>' +
+		    	  			'<p class="footnote ' + checkProperty(addProperty(f.properties['type-description'])) + '">' + addProperty(f.properties['amount-description']) + '</p>'
 		    	  			: `` }
 			    	  	</div>
-			    	  	<div class="stat ${(f.properties['type of chip']) ? 'supplied' : ``} ">
+			    	  	<div class="stat-container ${(f.properties['type of chip']) ? 'supplied' : `hide`} ">
 			    				${(f.properties['type of chip']) ? 
 			    	  		'<p class="label">TYPE</p>' +
-			    				'<p>' + f.properties['type of chip'] + '</p>' +
-		    	  			'<p class="footnote">' + addProperty(f.properties['type-description']) + '</p>'
+			    				'<p class="stat">' + f.properties['type of chip'] + '</p>' +
+		    	  			'<p class="footnote ' + checkProperty(addProperty(f.properties['type-description'])) + '">' + addProperty(f.properties['type-description']) + '</p>'
 									: `` }
 			    			</div>
 			    		</section>
@@ -167,6 +167,7 @@ function fullPopup(f, task) {
 
 
 let addProperty = (prop) => (prop) ? prop : '';
+let checkProperty = (prop) => (prop) ? 'true' : 'false';
 let getFlagURL = (countryCode) => 'https://countryflagsapi.com/svg/' + countryCode.toLowerCase();
 
 
