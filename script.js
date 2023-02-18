@@ -165,12 +165,14 @@ function fullPopup(f, task) {
 			    			</div>
 			    		</section>
 			    	</div>
-		    		<div class="popup-footer"
+		    		<div class="popup-footer">
 		    			<div class="sources">
-		    					${(f.properties.source1 || f.properties.source2 || f.properties.source3 || f.properties.source4) ? 
-		    						'<p class="label">SOURCES</p>'
-			    					(f.properties.source1) ? '<a>' + f.properties.source1 + '</a>': ``
-									: `` }
+		    						<p class="label">SOURCES</p>
+	    							<ol>
+		    							${(f.properties['source1 link'] || f.properties['source1 label']) ? '<li class="source" ><a href="' + f.properties['source1 link'] + '" target="_blank" >' + f.properties['source1 label'] + '</a></li>': ``}
+		    							${(f.properties['source2 link'] || f.properties['source2 label']) ? '<li class="source" ><a href="' + f.properties['source2 link'] + '" target="_blank" >' + f.properties['source2 label'] + '</a></li>': ``}
+		    							${(f.properties['source3 link'] || f.properties['source3 label']) ? '<li class="source" ><a href="' + f.properties['source3 link'] + '" target="_blank" >' + f.properties['source3 label'] + '</a></li>': ``}
+		    						</ol>
 		    			</div>
 		    		</div>`,
 					className: 'popup-content' 
@@ -244,19 +246,21 @@ map.on('click', (event) => {
 				fullPopup('clear', 'clear');
 				hoverpopup.remove();
 				selectedPopup.remove();
+				// map.setPadding({right:0})
 	  		return;
 	  }
 	  if (features.length) { // FEATURES CLICKED
   		  const feature = features[0];
 			  console.log("clicked feature: ", feature);
+  			
 				createSelectedPopup(feature);
+				fullPopup(feature, 'create');
 
 				map.easeTo({
 					center: feature.geometry.coordinates,
 					duration: 700,
-				});
+				})	
 
-				fullPopup(feature, 'create');
 	  }
 });
 

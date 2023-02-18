@@ -85,6 +85,7 @@ body {
 
 .continent-toggle:hover {
   color: rgb(169 38 49 / 80%);
+  text-decoration: underline;
 }
 
 .continent-toggle#united-states {
@@ -141,8 +142,8 @@ header {
   z-index: 1000;
   width: 100%;
   max-width: 450px;
-  background: rgb(249 249 249 / 74%);
-  box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%);
+  background: rgb(249 249 249 / 90%);
+  box-shadow: 0 0 10px 2px rgb(0 0 0 / 20%);
   backdrop-filter: blur(4px);
 }
 
@@ -215,6 +216,15 @@ h5 {
   font-weight: 600;
   font-family: var(--theme-sans-serif);
   font-size: clamp(14px, 2vmin, 18px);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+  filter: brightness(70%);
 }
 
 .footnote {
@@ -355,10 +365,37 @@ h5 {
   border-bottom: 1px solid var(--theme-grey);
 }
 
+.sources ol {
+  padding-left: 12px;
+  margin-top: 0px;
+}
+
+li.source {
+  font-size: 12px;
+  color: var(--theme-grey);
+  font-weight: default;  
+}
+
+.source a{
+  margin-left: 8px;
+  display: block;
+  font-size: 12px;
+  color: var(--theme-red);  
+  font-weight: 600;
+}
 
 
 /*************************************/
 /*********** MEDIA QUERIES ***********/
+
+@media only screen and (max-width: 900px) {
+
+  .content-container.popup-container {
+    padding: 48px;
+  }
+
+}
+
 
 @media only screen and (max-width: 650px) {
 
